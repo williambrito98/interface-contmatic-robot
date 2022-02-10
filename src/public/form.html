@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="js/index.js"></script>
+    <title>HUB BOTS</title>
+</head>
+
+<body>
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-info">
+        <span class="navbar-brand mb-0 h1">HUB BOTS</span>
+    </nav>
+
+    <div class="container mt-5">
+        <form action="/run" method="post"  id="formulario">
+            <label for="servidor">Selecione o servidor</label>
+            <select class="w-100 border" name="servidor" id="servidor" required>
+                <option value="tactusSP">Tactus SP</option>
+                <option value="tactusBH">Tactus BH</option>
+            </select>
+
+            <label for="codigo" class="d-block mt-4">Informe os códigos das empresas</label>
+            <input type="text" id="codigo" name="codido" class="d-block w-100 border"
+                placeholder="Informe os codigos separados por virgula">
+
+            <label class="mt-4" for="ano">Selecione o ano</label>
+            <select class="selectpicker w-100 border" id="ano" name="ano" multiple data-live-search="true" required>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2021</option>
+                <option value="2021">2022</option>
+            </select>
+
+            <label for="mes" class="mt-4">Selecione o mes</label>
+            <select class="selectpicker w-100 border" name="mes" id="mes" multiple data-live-search="true" required>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary mt-5">Enviar</button>
+                <a href="./index.html" class="btn btn-primary mt-5">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script>
+        $('select').selectpicker();
+    </script>
+</body>
+
+</html>

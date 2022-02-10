@@ -45,7 +45,7 @@ route.post('/run', (req, res) => {
         }).end()
     }
     const file = readdirSync(resolve('./uploads')).pop()
-    unlinkSync(resolve('./uploads', file))
+    file ? unlinkSync(resolve('./uploads', file)) : ''
     const w = new Worker(process.env.PATH_ROBOT, { workerData: req.body })
     arrayWorkers.push(w)
     return res.status({ status: 200 }).end()

@@ -53,7 +53,7 @@ route.post('/run', (req, res) => {
     w.on('exit', (code) => {
         statusWorker.status = 'Parado'
     })
-    return res.status({ status: 200 }).end()
+    return res.send({ status: 200 }).end()
 })
 
 route.get('/status', (req, res) => {

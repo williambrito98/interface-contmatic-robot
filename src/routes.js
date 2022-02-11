@@ -27,7 +27,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ dest: 'uploads/', storage });
 
-const arrayWorkers = []
+const statusWorker = {
+    status: 'Parado'
+}
 
 route.get('/', (req, res) => {
     return res.sendFile('./public/index.html', { root: resolve('./src') })
@@ -47,15 +49,15 @@ route.post('/run', (req, res) => {
     const file = readdirSync(resolve('./uploads')).pop()
     file ? unlinkSync(resolve('./uploads', file)) : ''
     const w = new Worker(process.env.PATH_ROBOT, { workerData: req.body })
-    arrayWorkers.push(w)
+    statusWorker.status = 'Rodando'
+    w.on('exit', (code) => {
+        statusWorker.status = 'Parado'
+    })
     return res.status({ status: 200 }).end()
 })
 
 route.get('/status', (req, res) => {
-    if (arrayWorkers.length === 0) {
-        return res.send({ statusRobot: 'Parado' }).end()
-    }
-    return res.send({ statusRobot: 'Rodando' }).end()
+    return res.send({ statusRobot: statusWorker.status }).end()
 })
 
 

@@ -40,7 +40,7 @@ route.get('/form', (req, res) => {
 })
 
 route.post('/run', (req, res) => {
-    if (arrayWorkers.length !== 0) {
+    if (statusWorker.status === 'Rodando') {
         return res.send({
             status: 500,
             message: 'Erro ao iniciar o robo: Ja existe uma instancia rodando'
@@ -67,7 +67,11 @@ route.post('/uploadZip', upload.single('zip'), (req, res) => {
 
 route.get('/downloadZip', function (req, res) {
     const file = readdirSync(resolve('./uploads')).pop()
-    return res.download(resolve('./uploads', file));
+    if (file) {
+        return res.download(resolve('./uploads', file));
+    }
+    return res.end();
+
 });
 
 module.exports = route

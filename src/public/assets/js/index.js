@@ -5,13 +5,13 @@ window.addEventListener('load', () => {
         e.preventDefault()
         const servidor = e.target.querySelector('#servidor').value
         const codigo = getValuesInMultipleSelect('#codigo')
-        const ano = getValuesInMultipleSelect("#ano")
+        const anos = getValuesInMultipleSelect("#ano")
         const mes = getValuesInMultipleSelect("#mes")
 
         const body = {
             servidor,
             codigo,
-            ano,
+            anos,
             mes
         }
 

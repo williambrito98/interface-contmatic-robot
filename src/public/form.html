@@ -26,13 +26,13 @@
     <div class="container mt-5">
         <form action="/run" method="post" id="formulario">
             <label for="servidor" class="d-block">Selecione o servidor</label>
-            <select class="w-100 border bg-white" name="servidor" id="servidor" required>
+            <select class="w-100 border bg-white" name="servidor" id="servidor">
                 <option value="tactusSP">Tactus SP</option>
                 <option value="tactusBH">Tactus BH</option>
             </select>
 
             <label for="codigo" class="d-block mt-4">Informe os códigos das empresas</label>
-            <select id="codigo" name="codigo" multiple multiselect-select-all="true" class="w-100 border">
+            <select id="codigo" name="codigo" multiple multiselect-select-all="true" multiselect-search="true" class="w-100 border">
                 <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -3289,8 +3289,8 @@
                 placeholder="Informe os codigos separados por virgula"> -->
 
             <label class="mt-4" for="ano">Selecione o ano</label>
-            <select class="selectpicker w-100 border" id="ano" name="ano" multiple multiple
-                multiselect-select-all="true" required>
+            <select class="w-100 border" id="ano" name="ano" multiple multiple
+                multiselect-select-all="true">
                 <option value="2015">2015</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
@@ -3302,8 +3302,7 @@
             </select>
 
             <label for="mes" class="mt-4">Selecione o mes</label>
-            <select class="selectpicker w-100 border" name="mes" id="mes" multiple multiselect-select-all="true"
-                required>
+            <select class="w-100 border" name="mes" id="mes" multiple multiselect-select-all="true">
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>

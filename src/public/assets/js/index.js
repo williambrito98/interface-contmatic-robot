@@ -4,21 +4,24 @@ window.addEventListener('load', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         const servidor = e.target.querySelector('#servidor').value
-        const codigo = e.target.querySelector('#codigo').value
-        const ano = e.target.querySelector("button[data-id='ano']").title
-        const mes = e.target.querySelector("button[data-id='mes']").title
+        const codigo = getValuesInMultipleSelect('#codigo')
+        const ano = getValuesInMultipleSelect("#ano")
+        const mes = getValuesInMultipleSelect("#mes")
 
         const body = {
             servidor,
-            codigo: codigo.split(',').map(item => item.trim()),
-            ano: ano.split(',').map(item => item.trim()),
-            mes: mes.split(',').map(item => item.trim())
+            codigo,
+            ano,
+            mes
         }
+
+        console.log(body)
 
         if (!isEmpty(servidor, codigo, ano, mes)) {
             alert('Todos os campos devem estar preenchidos')
             return false
         }
+
 
         fetch('/run', {
             method: 'POST',
@@ -48,10 +51,22 @@ window.addEventListener('load', () => {
     })
 
 
-    function isEmpty(...args) {
-        const empty = args.filter(item => item === '')
+    function getValuesInMultipleSelect(selector) {
+        const el = document.querySelector(selector).selectedOptions
+        console.log(el)
+        const array = []
+        for (let index = 0; index < el.length; index++) {
+            array.push(el[index].value)
+        }
 
-        if (empty.length !== 0) return false
+        return array
+    }
+
+
+    function isEmpty(...args) {
+        const empty = args.filter(item => item.length !== 0)
+
+        if (empty.length !== args.length) return false
 
         return true
     }
